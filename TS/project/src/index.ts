@@ -1,12 +1,10 @@
 class User{
-    email:string
-    name:string
-    readonly city:string = "Dhaka"
-    constructor(email:string, name:string){
-        this.email= email
-        this.name= name
-
-    }
+    city:string = "Dhaka"
+    constructor(
+        public email:string,
+        public name:string
+    )
+    {}
 }
 
 const agni = new User("agni@gmail.com", "agni")
