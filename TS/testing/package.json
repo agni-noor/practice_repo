@@ -1,12 +1,18 @@
 {
   "name": "testing",
   "version": "1.0.0",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./dist/index.js"
+    "dev": "nodemon ./dist/index.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "mocha": "^11.0.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
+  }
 }
