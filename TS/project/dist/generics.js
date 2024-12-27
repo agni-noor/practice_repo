@@ -19,3 +19,26 @@ function identityFour(val) {
 }
 //This the syntax when a non-primitive type is passed
 identityFour({ size: "50", price: 20 });
+function searchProduct(products) {
+    const myIndex = 3;
+    return products[myIndex];
+}
+//Arrow function for the same thing
+const searchProductTwo = (products) => {
+    const myIndex = 4;
+    return products[myIndex];
+};
+function anotherFunction(valOne, valTwo) {
+    return {
+        valOne,
+        valTwo
+    };
+}
+class Sellable {
+    constructor() {
+        this.cart = [];
+    }
+    addToCart(product) {
+        this.cart.push(product);
+    }
+}
