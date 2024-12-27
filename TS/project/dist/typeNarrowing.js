@@ -14,3 +14,8 @@ function printAll(val) {
         }
     }
 }
+function isAdmin(account) {
+    if ("isAdmin" in account) {
+        return account.isAdmin;
+    }
+}
