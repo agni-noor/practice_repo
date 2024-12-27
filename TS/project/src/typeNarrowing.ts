@@ -52,3 +52,42 @@ function getFood(pet:Fish|Bird){
         console.log("Bird food")
     }
 }
+
+interface Circle{
+    kind:"circle",
+    radius:number
+}
+interface Square{
+    kind:"square",
+    side:number
+}
+
+interface Rectangle{
+    kind:"rectangle",
+    length:number,
+    width:number
+}
+
+type Shape= Circle | Square
+
+function getTrueShape(shape:Shape){
+    if(shape.kind==="circle"){
+        return shape.radius
+    }else{
+        return shape.side
+    }
+}
+function getArea(shape:Shape){
+    switch (shape.kind) {
+        case "circle":
+            
+            return shape.radius
+        
+        case "square":
+            return shape.side
+    
+        default:
+            const _defaultforshape: never = shape
+            return _defaultforshape
+    }
+}
