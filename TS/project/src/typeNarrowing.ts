@@ -32,3 +32,23 @@ function isAdmin(account: User | Admin){
         return account.isAdmin
     }
 }
+
+type Fish ={ swim():void}
+type Bird ={fly():void}
+
+function isFish(pet: Fish | Bird):pet is Fish{
+    return (pet as Fish).swim !== undefined
+}
+
+
+
+//Now ts can identify the type of Fish in the two conditional blocks
+function getFood(pet:Fish|Bird){
+    if(isFish(pet)){
+        pet
+        console.log("Fish food")
+    }else{
+        pet
+        console.log("Bird food")
+    }
+}

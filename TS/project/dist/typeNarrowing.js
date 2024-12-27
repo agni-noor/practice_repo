@@ -19,3 +19,17 @@ function isAdmin(account) {
         return account.isAdmin;
     }
 }
+function isFish(pet) {
+    return pet.swim !== undefined;
+}
+//Now ts can identify the type of Fish in the two conditional blocks
+function getFood(pet) {
+    if (isFish(pet)) {
+        pet;
+        console.log("Fish food");
+    }
+    else {
+        pet;
+        console.log("Bird food");
+    }
+}
