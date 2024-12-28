@@ -1,16 +1,19 @@
 {
   "name": "testing",
   "version": "1.0.0",
-  "type": "module",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
-    "dev": "nodemon ./dist/index.ts"
+    "dev": "nodemon ./dist/src/index.js",
+    "test": "mocha --require ts-node/register './dist/test/**/*.spec.js'"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@types/chai": "^5.0.1",
+    "@types/mocha": "^10.0.10",
+    "chai": "^5.1.2",
     "mocha": "^11.0.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.2"

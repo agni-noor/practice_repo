@@ -1,14 +1,12 @@
 {
   "compilerOptions": {
-    "module": "ESNext",        // This ensures that the output will be ES Modules
-    "target": "ESNext",        // Set target to ESNext or ES6 for modern syntax
-    "moduleResolution": "Node", // Resolve modules like Node.js does
-    "esModuleInterop": true,   // Enables compatibility with CommonJS modules
-    "allowJs": true,           // Allows TypeScript to import JS files if needed
-    "outDir": "./dist",        // Output directory for compiled files
-    "rootDir": "./src",        // Source directory for TypeScript files
-    "strict": true             // Enable strict type checking
+    "target": "ES6",
+    "module": "CommonJS",
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "strict": true,
+    "skipLibCheck": true
   },
-  "include": ["src/**/*.ts"],  // Include your TypeScript files in the project
+  "include": ["src/**/*", "test/**/*"],
   "exclude": ["node_modules"]
 }
