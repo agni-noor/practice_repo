@@ -1,12 +1,10 @@
-const express = require('express');
+import express from "express"
 
 const app = express();
 const PORT = 3000;
 
-app.get('/email', (req, res)=>{
-    res.status(200);
-    res.send("Welcome to root URL of Server");
-});
+import smsRoutes from "./routes/sms.js";
+app.use("/sms", smsRoutes);
 
 app.listen(PORT, (error) =>{
     if(!error)

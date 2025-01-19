@@ -1,7 +1,6 @@
 import express, { Request, Response, Express } from "express";
 import dotenv from "dotenv";
 
-// Initialize dotenv for environment variables
 dotenv.config();
 
 // Helper function to simulate random failure
@@ -66,11 +65,12 @@ function validateBody(type: "sms" | "email") {
   if (type === "email") {
     return validateEmailBody;
   }
-
 }
 
 function registerApi(app: Express, type: "sms" | "email", index: number) {
-  // SMS APIs
+  // Add JSON middleware here
+  app.use(express.json());
+
   app.post(
     `/api/${type}/provider${index}`,
     validateBody(type),
@@ -101,6 +101,10 @@ for (let index = 1; index < 4; index++) {
 
   const emailApp = express();
   const emailPort = process.env[`PORT_EMAIL_${index}`] || 8090 + index;
+
+  // Add JSON middleware before registering the APIs
+  smsApp.use(express.json());
+  emailApp.use(express.json());
 
   registerApi(smsApp, "sms", index);
   registerApi(emailApp, "email", index);
