@@ -2,9 +2,12 @@ import express from "express"
 
 const app = express();
 const PORT = 3000;
+app.use(express.json());
 
 import smsRoutes from "./routes/sms.js";
 app.use("/sms", smsRoutes);
+
+
 
 app.listen(PORT, (error) =>{
     if(!error)

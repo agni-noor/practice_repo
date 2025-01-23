@@ -1,10 +1,25 @@
 import express from "express";
-import { postSMS } from "../controllers/sms.js";
+import { smsProviders } from "../const.js";
+import { sendSMS } from "../controllers/sms.js";
 
 const router = express.Router();
 
-router.get("/", postSMS);
+router.post("/sendsms", async (req, res) => {
+    const { phone, text } = req.body;
+  
+    if (!phone || !text) {
+      return res.status(400).json({ error: "Phone and text are required." });
+    }
+  
+    try {
+      const result = await sendSMS(smsProviders, { phone, text }, "sms");
+      res.status(200).json(result);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  });
 
-
+//add services
+//zod validation library
 
 export default router;
