@@ -7,7 +7,10 @@ app.use(express.json());
 import smsRoutes from "./routes/sms.js";
 app.use("/sms", smsRoutes);
 
-
+app.get('/',(req,res)=>{
+    console.log("root called")
+    res.status(200).json('success')
+})
 
 app.listen(PORT, (error) =>{
     if(!error)
