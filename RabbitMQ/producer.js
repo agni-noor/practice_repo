@@ -21,7 +21,7 @@ async function sendMail() {
         await channel.bindQueue("mail-queue-sub-user",exchange, routingKeyForSubUser )
 
         await channel.bindQueue("mail-queue-normal-user",exchange, routingKeyForNormalUser )
-        channel.publish(exchange, routingKeyForNormalUser, Buffer.from(JSON.stringify(message)))
+        channel.publish(exchange, routingKeyForSubUser, Buffer.from(JSON.stringify(message)))
         console.log('Mail data was sent', message)
         setTimeout(()=>{
             connection.close()

@@ -8,3 +8,5 @@ export const smsProviders = [
     "http://localhost:8072/api/sms/provider2",
     "http://localhost:8073/api/sms/provider3",
   ];
+
+  //each provider should have it's own function
